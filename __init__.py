@@ -26,7 +26,17 @@ __plugin_settings__ = {
 }
 __plugin_configs__ = {
     "WITHDRAW_LAP_MESSAGE": {
-        "value": (0, 1),
+        "value": (30, 1),
+        "help": "自动撤回，参1：延迟撤回色图时间(秒)，0 为关闭 | 参2：监控聊天类型，0(私聊) 1(群聊) 2(群聊+私聊)",
+        "default_value": (0, 1),
+    },
+    "WITHDRAW_XJJ_MESSAGE": {
+        "value": (30, 1),
+        "help": "自动撤回，参1：延迟撤回色图时间(秒)，0 为关闭 | 参2：监控聊天类型，0(私聊) 1(群聊) 2(群聊+私聊)",
+        "default_value": (0, 1),
+    },
+    "WITHDRAW_LSP_MESSAGE": {
+        "value": (30, 1),
         "help": "自动撤回，参1：延迟撤回色图时间(秒)，0 为关闭 | 参2：监控聊天类型，0(私聊) 1(群聊) 2(群聊+私聊)",
         "default_value": (0, 1),
     },
@@ -66,7 +76,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
         withdraw_message_manager.withdraw_message(
             event,
             msg_id["message_id"],
-            Config.get_config("xjj", "WITHDRAW_LAP_MESSAGE"),
+            Config.get_config("lap", "WITHDRAW_XJJ_MESSAGE"),
         )
     except Exception as e:
         logger.error(f"xjj 发送了未知错误 {type(e)}：{e}")
@@ -85,7 +95,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
         withdraw_message_manager.withdraw_message(
             event,
             msg_id["message_id"],
-            Config.get_config("lsp", "WITHDRAW_LAP_MESSAGE"),
+            Config.get_config("lap", "WITHDRAW_LAP_MESSAGE"),
         )
     except Exception as e:
         logger.error(f"lap 发送了未知错误 {type(e)}：{e}")
@@ -105,7 +115,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
         withdraw_message_manager.withdraw_message(
             event,
             msg_id["message_id"],
-            Config.get_config("leg", "WITHDRAW_LEG_MESSAGE"),
+            Config.get_config("lap", "WITHDRAW_LAP_MESSAGE"),
         )
     except Exception as e:
         logger.error(f"leg 发送了未知错误 {type(e)}：{e}")
@@ -125,7 +135,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
         withdraw_message_manager.withdraw_message(
             event,
             msg_id["message_id"],
-            Config.get_config("pc", "WITHDRAW_PC_MESSAGE"),
+            Config.get_config("lap", "WITHDRAW_LAP_MESSAGE"),
         )
     except Exception as e:
         logger.error(f"pc 发送了未知错误 {type(e)}：{e}")
@@ -145,7 +155,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
         withdraw_message_manager.withdraw_message(
             event,
             msg_id["message_id"],
-            Config.get_config("qlgs", "WITHDRAW_QLGS_MESSAGE"),
+            Config.get_config("lap", "WITHDRAW_LAP_MESSAGE"),
         )
     except Exception as e:
         logger.error(f"qlgs 发送了未知错误 {type(e)}：{e}")
@@ -164,7 +174,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
         withdraw_message_manager.withdraw_message(
             event,
             msg_id["message_id"],
-            Config.get_config("cos2", "WITHDRAW_COS2_MESSAGE"),
+            Config.get_config("lap", "WITHDRAW_LAP_MESSAGE"),
             await cos2.send("色图虽好但不要冲太多哦")
         )
     except Exception as e:
@@ -184,7 +194,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
         withdraw_message_manager.withdraw_message(
             event,
             msg_id["message_id"],
-            Config.get_config("ll", "WITHDRAW_SNXZ_MESSAGE"),
+            Config.get_config("lap", "WITHDRAW_LAP_MESSAGE"),
             await ll.send("色图虽好但不要冲太多哦")
         )
     except Exception as e:
@@ -204,7 +214,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
         withdraw_message_manager.withdraw_message(
             event,
             msg_id["message_id"],
-            Config.get_config("jz1", "WITHDRAW_SNXZ_MESSAGE"),
+            Config.get_config("lap", "WITHDRAW_LAP_MESSAGE"),
             await jz1.send("色图虽好但不要冲太多哦")
         )
     except Exception as e:
@@ -224,7 +234,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
         withdraw_message_manager.withdraw_message(
             event,
             msg_id["message_id"],
-            Config.get_config("ys1", "WITHDRAW_SNXZ_MESSAGE"),
+            Config.get_config("lap", "WITHDRAW_LAP_MESSAGE"),
             await ys1.send("二次元真不错嘿嘿(●´∀｀●)")
         )
     except Exception as e:
@@ -244,7 +254,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
         withdraw_message_manager.withdraw_message(
             event,
             msg_id["message_id"],
-            Config.get_config("ys2", "WITHDRAW_SNXZ_MESSAGE"),
+            Config.get_config("lap", "WITHDRAW_LAP_MESSAGE"),
             await ys2.send("二次元真不错嘿嘿(●´∀｀●)")
         )
     except Exception as e:
@@ -264,11 +274,11 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
         withdraw_message_manager.withdraw_message(
             event,
             msg_id["message_id"],
-            Config.get_config("tb", "WITHDRAW_SNXZ_MESSAGE"),
+            Config.get_config("lap", "WITHDRAW_LAP_MESSAGE"),
             await tb.send("漂亮妹妹真不错嘿嘿(●´∀｀●)")
         )
     except Exception as e:
-        logger.error(f"ys2 发送了未知错误 {type(e)}：{e}")
+        logger.error(f"tb 发送了未知错误 {type(e)}：{e}")
 
 
 tk = on_regex("^(tk|腿控)$", priority=5, block=True)
@@ -284,7 +294,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
         withdraw_message_manager.withdraw_message(
             event,
             msg_id["message_id"],
-            Config.get_config("tk", "WITHDRAW_SNXZ_MESSAGE"),
+            Config.get_config("lap", "WITHDRAW_LAP_MESSAGE"),
             await tk.send("漂亮妹妹真不错嘿嘿(●´∀｀●)")
         )
     except Exception as e:
