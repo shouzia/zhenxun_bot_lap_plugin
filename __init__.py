@@ -45,7 +45,7 @@ __plugin_configs__ = {
     },
 }
 
-lap = on_regex("^(\d)连?(lap|LAP|腿)$", priority=5, block=True)
+lap = on_regex("^(\d?)连?(lap|LAP|腿)$", priority=5, block=True)
 
 
 # url = "https://api.jrsgslb.cn/cos/url.php?return=img"
@@ -67,7 +67,7 @@ async def _(bot: Bot, event: MessageEvent, reg_group: Tuple[Any, ...] = RegexGro
             logger.error(f"lap 发送了未知错误 {type(e)}：{e}")
 
 
-xjj = on_regex("^(\d)连?(学习|xjj)$", priority=5, block=True)
+xjj = on_regex("^(\d?)连?(学习|xjj)$", priority=5, block=True)
 
 
 # xjjurl = "https://img.moehu.org/pic.php?id=xjj"
@@ -89,7 +89,7 @@ async def _(bot: Bot, event: MessageEvent, reg_group: Tuple[Any, ...] = RegexGro
             logger.error(f"xjj 发送了未知错误 {type(e)}：{e}")
 
 
-lsp = on_regex("^(\d)连?(lsp|LSP)$", priority=5, block=True)
+lsp = on_regex("^(\d?)连?(lsp|LSP)$", priority=5, block=True)
 
 
 lspurl = "https://api.jrsgslb.cn/cos/url.php?return=img"
@@ -110,7 +110,7 @@ async def _(bot: Bot, event: MessageEvent, reg_group: Tuple[Any, ...] = RegexGro
             logger.error(f"lap 发送了未知错误 {type(e)}：{e}")
 
 
-leg = on_regex("^(\d)连?(leg|足控)$", priority=5, block=True)
+leg = on_regex("^(\d?)连?(leg|足控)$", priority=5, block=True)
 
 
 # url = "https://api.jrsgslb.cn/cos/url.php?return=img"
@@ -132,7 +132,7 @@ async def _(bot: Bot, event: MessageEvent, reg_group: Tuple[Any, ...] = RegexGro
             logger.error(f"leg 发送了未知错误 {type(e)}：{e}")
 
 
-pc = on_regex("^(\d)连?(pc|胖次)$", priority=5, block=True)
+pc = on_regex("^(\d?)连?(pc|胖次)$", priority=5, block=True)
 
 
 # url = "https://api.jrsgslb.cn/cos/url.php?return=img"
@@ -154,7 +154,7 @@ async def _(bot: Bot, event: MessageEvent, reg_group: Tuple[Any, ...] = RegexGro
             logger.error(f"pc 发送了未知错误 {type(e)}：{e}")
 
 
-qlgs = on_regex("^(\d)连?(qlgs|七了个三)$", priority=5, block=True)
+qlgs = on_regex("^(\d?)连?(qlgs|七了个三)$", priority=5, block=True)
 
 
 # url = "https://api.jrsgslb.cn/cos/url.php?return=img"
@@ -176,7 +176,7 @@ async def _(bot: Bot, event: MessageEvent, reg_group: Tuple[Any, ...] = RegexGro
             logger.error(f"qlgs 发送了未知错误 {type(e)}：{e}")
 
 
-cos2 = on_regex("^(\d)连?(cos2|jpcos)$", priority=5, block=True)
+cos2 = on_regex("^(\d?)连?(cos2|jpcos)$", priority=5, block=True)
 
 
 cos2url = "https://api.r10086.com/img-api.php?type=日本COS中国COS"
@@ -198,7 +198,7 @@ async def _(bot: Bot, event: MessageEvent, reg_group: Tuple[Any, ...] = RegexGro
             logger.error(f"cos2 发送了未知错误 {type(e)}：{e}")
 
 
-ll = on_regex("^(\d)连?(ll|萝莉1)$", priority=5, block=True)
+ll = on_regex("^(\d?)连?(ll|萝莉1)$", priority=5, block=True)
 
 
 llurl = "https://api.r10086.com/img-api.php?type=萝莉"
@@ -220,7 +220,7 @@ async def _(bot: Bot, event: MessageEvent, reg_group: Tuple[Any, ...] = RegexGro
             logger.error(f"ll 发送了未知错误 {type(e)}：{e}")
 
 
-jz1 = on_regex("^(\d)连?(jz1|橘子1)$", priority=5, block=True)
+jz1 = on_regex("^(\d?)连?(jz1|橘子1)$", priority=5, block=True)
 
 
 jz1url = "https://api.r10086.com/img-api.php?type=橘里橘气横屏系列1"
@@ -242,7 +242,7 @@ async def _(bot: Bot, event: MessageEvent, reg_group: Tuple[Any, ...] = RegexGro
             logger.error(f"jz1 发送了未知错误 {type(e)}：{e}")
 
 
-ys1 = on_regex("^(\d)连?(yst1|原神1)$", priority=5, block=True)
+ys1 = on_regex("^(\d?)连?(yst1|原神1)$", priority=5, block=True)
 
 
 ys1url = "https://api.r10086.com/img-api.php?type=原神竖屏系列1"
@@ -264,7 +264,7 @@ async def _(bot: Bot, event: MessageEvent, reg_group: Tuple[Any, ...] = RegexGro
             logger.error(f"ys1 发送了未知错误 {type(e)}：{e}")
 
 
-ys2 = on_regex("^(\d)连?(yst2|原神2)$", priority=5, block=True)
+ys2 = on_regex("^(\d?)连?(yst2|原神2)$", priority=5, block=True)
 
 
 ys2url = "https://api.r10086.com/img-api.php?type=原神横屏系列1"
@@ -286,7 +286,7 @@ async def _(bot: Bot, event: MessageEvent, reg_group: Tuple[Any, ...] = RegexGro
             logger.error(f"ys2 发送了未知错误 {type(e)}：{e}")
 
 
-tb = on_regex("^(\d)连?(tb|淘宝)$", priority=5, block=True)
+tb = on_regex("^(\d?)连?(tb|淘宝)$", priority=5, block=True)
 
 
 tburl = "https://api.ghser.com/tao"
@@ -308,7 +308,7 @@ async def _(bot: Bot, event: MessageEvent, reg_group: Tuple[Any, ...] = RegexGro
             logger.error(f"tb 发送了未知错误 {type(e)}：{e}")
 
 
-tk = on_regex("^(\d)连?(tk|腿控)$", priority=5, block=True)
+tk = on_regex("^(\d?)连?(tk|腿控)$", priority=5, block=True)
 
 
 tkurl = "http://jintia.jintias.cn/api/tk.php"
