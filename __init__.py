@@ -15,7 +15,7 @@ usage：
     我与赌毒不共戴天！！！色图虽好但不要冲太多哦！！！
     指令：
         lap/腿/sn[1-5]/skll/ll/cos2/jz1/jz2
-    示例：5连lap|leg （单次请求张数小于9）
+    示例：5连  lap|leg|指令 （单次请求张数小于9）
 """.strip()
 __plugin_des__ = "看看漂亮妹妹？"
 __plugin_cmd__ = ["lap/腿/sn[1-5]/skll/ll/cos2/jz1/jz2"]
@@ -114,7 +114,7 @@ leg = on_regex("^(\d?)连?(leg|足控)$", priority=5, block=True)
 
 
 # url = "https://api.jrsgslb.cn/cos/url.php?return=img"
-tpmturl = "https://api.a-ro.cn/s/t/tpmt.php"
+tpmturl = "https://ovooa.com/API/meizi/api.php?type=image"
 
 
 @leg.handle()
@@ -179,7 +179,7 @@ async def _(bot: Bot, event: MessageEvent, reg_group: Tuple[Any, ...] = RegexGro
 cos2 = on_regex("^(\d?)连?(cos2|jpcos)$", priority=5, block=True)
 
 
-cos2url = "https://api.r10086.com/img-api.php?type=日本COS中国COS"
+cos2url = "https://ovooa.com/API/cosplay/api.php?type=image"
 
 
 @cos2.handle()
