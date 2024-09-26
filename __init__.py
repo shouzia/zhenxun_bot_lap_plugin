@@ -8,6 +8,15 @@ from services.log import logger
 from utils.manager import withdraw_message_manager
 from configs.config import Config
 
+from typing import Tuple
+from nonebot.plugin import PluginMetadata
+from zhenxun.configs.config import Config
+from zhenxun.configs.path_config import TEMP_PATH
+from zhenxun.configs.utils import PluginExtraData, RegisterConfig
+from zhenxun.services.log import logger
+from zhenxun.utils.http_utils import AsyncHttpx
+from zhenxun.utils.message import MessageUtils
+from zhenxun.utils.withdraw_manage import WithdrawManager
 
 __zx_plugin_name__ = "lap"
 __plugin_usage__ = """
@@ -44,6 +53,43 @@ __plugin_configs__ = {
         "default_value": (0, 1),
     },
 }
+
+
+__plugin_meta__ = PluginMetadata(
+    name="lap",
+    description="我与赌毒不共戴天！！！色图虽好但不要冲太多哦！！！",
+    usage="""
+    lap/腿/sn[1-5]/skll/ll/cos2/jz1/jz2
+    示例: lap/腿/sn[1-5]/skll/ll/cos2/jz1/jz2
+    """.strip(),
+    extra=PluginExtraData(
+        author="shouzi",
+        version="0.1",
+        configs=[
+            RegisterConfig(
+                key="WITHDRAW_LAP_MESSAGE",
+                value=(30, 1),
+                help="自动撤回，参1：延迟撤回色图时间(秒)，0 为关闭 | 参2：监控聊天类型，0(私聊) 1(群聊) 2(群聊+私聊)",
+                default_value=(30, 1),
+                type=Tuple[int, int],
+            ),
+            RegisterConfig(
+                key="WITHDRAW_XJJ_MESSAGE",
+                value=(30, 1),
+                help="自动撤回，参1：延迟撤回色图时间(秒)，0 为关闭 | 参2：监控聊天类型，0(私聊) 1(群聊) 2(群聊+私聊)",
+                default_value=(30, 1),
+                type=Tuple[int, int],
+            ),
+            RegisterConfig(
+                key="WITHDRAW_LSP_MESSAGE",
+                value=(30, 1),
+                help="自动撤回，参1：延迟撤回色图时间(秒)，0 为关闭 | 参2：监控聊天类型，0(私聊) 1(群聊) 2(群聊+私聊)",
+                default_value=(30, 1),
+                type=Tuple[int, int],
+            ),
+        ],
+    ).dict(),
+)
 
 lap = on_regex("^(\d?)连?(lap|LAP|腿)$", priority=5, block=True)
 
