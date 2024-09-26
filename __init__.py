@@ -4,7 +4,6 @@ from nonebot.params import RegexGroup
 from nonebot.typing import T_State
 from nonebot.adapters.onebot.v11 import Bot, MessageEvent
 from utils.message_builder import image
-from services.log import logger
 from utils.manager import withdraw_message_manager
 from configs.config import Config
 
